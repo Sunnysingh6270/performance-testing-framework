@@ -1,0 +1,18 @@
+{
+  "Module Name": "example_dashboard",
+  "Test Type": "stress",
+  "Scenario": "example_dashboard",
+  "Concurrent Users (Max)": 100,
+  "Total Requests": 48080,
+  "Average Response Time (ms)": "157.46",
+  "Min Response Time (ms)": "6.70",
+  "Max Response Time (ms)": "2244.83",
+  "P90 Response Time (ms)": "305.11",
+  "P95 Response Time (ms)": "308.51",
+  "Throughput (req/s)": "176.42",
+  "Failed Request Percentage (%)": "0.00",
+  "Threshold Result": "PASS",
+  "Performance Result": "PASS",
+  "Observation": "All performance metrics are within the acceptable thresholds.",
+  "Recommendation": "No action required."
+}

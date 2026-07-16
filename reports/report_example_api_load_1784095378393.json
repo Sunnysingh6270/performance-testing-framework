@@ -1,0 +1,18 @@
+{
+  "Module Name": "example_api",
+  "Test Type": "load",
+  "Scenario": "example_api",
+  "Concurrent Users (Max)": 50,
+  "Total Requests": 5832,
+  "Average Response Time (ms)": "109.89",
+  "Min Response Time (ms)": "6.78",
+  "Max Response Time (ms)": "2141.14",
+  "P90 Response Time (ms)": "303.63",
+  "P95 Response Time (ms)": "307.56",
+  "Throughput (req/s)": "48.42",
+  "Failed Request Percentage (%)": "33.33",
+  "Threshold Result": "FAIL",
+  "Performance Result": "FAIL",
+  "Observation": "Performance issues detected: http_req_failed failed on threshold rate<0.01",
+  "Recommendation": "Investigate the endpoints failing thresholds. Consider scaling resources or optimizing the application code."
+}
