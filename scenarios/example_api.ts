@@ -1,4 +1,4 @@
-import { get, post } from '../core/http.js';
+import { get, post } from '../core/http.ts';
 import { sleep } from 'k6';
 
 // Read data once during init phase (works well for static test data)

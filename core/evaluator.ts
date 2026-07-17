@@ -6,14 +6,16 @@
  * @param {object} data - The summary data provided by handleSummary
  * @returns {object} Evaluation results (pass/fail status, observations)
  */
-export function evaluateResults(data) {
+export function evaluateResults(data: any) {
   let isPass = true;
-  let failedThresholds = [];
+  let failedThresholds: string[] = [];
 
   // Iterate over all metrics and their thresholds
-  for (const [metricName, metric] of Object.entries(data.metrics)) {
+  for (const [metricName, metricValue] of Object.entries(data.metrics || {})) {
+    const metric = metricValue as any;
     if (metric.thresholds) {
-      for (const [thresholdName, thresholdPassed] of Object.entries(metric.thresholds)) {
+      for (const [thresholdName, thresholdValue] of Object.entries(metric.thresholds)) {
+        const thresholdPassed = thresholdValue as any;
         if (!thresholdPassed.ok) {
           isPass = false;
           failedThresholds.push(`${metricName} failed on threshold ${thresholdName}`);

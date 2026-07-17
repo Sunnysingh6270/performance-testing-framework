@@ -1,4 +1,4 @@
-import { get } from '../core/http.js';
+import { get } from '../core/http.ts';
 import { group, sleep } from 'k6';
 
 export function scenario() {

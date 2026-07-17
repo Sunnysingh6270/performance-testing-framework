@@ -15,7 +15,7 @@ export const customMetrics = {
  * @param {object} res - The k6 http response object
  * @param {boolean} isSuccess - Optional override for success condition
  */
-export function trackMetrics(res, isSuccess) {
+export function trackMetrics(res: any, isSuccess?: boolean) {
   const success = isSuccess !== undefined ? isSuccess : (res.status >= 200 && res.status < 400);
 
   if (success) {

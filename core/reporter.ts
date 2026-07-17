@@ -1,10 +1,10 @@
-import { evaluateResults } from './evaluator.js';
+import { evaluateResults } from './evaluator.ts';
 
-export function generateReport(data) {
+export function generateReport(data: any) {
   const { isPass, observation, recommendation } = evaluateResults(data);
 
   // Extract metrics safely
-  const getMetric = (name, field) => {
+  const getMetric = (name: string, field: string) => {
     return data.metrics[name] && data.metrics[name].values[field] 
       ? data.metrics[name].values[field].toFixed(2) 
       : 'N/A';
@@ -39,7 +39,7 @@ export function generateReport(data) {
 /**
  * Custom text summary for console output.
  */
-export function generateTextSummary(data) {
+export function generateTextSummary(data: any) {
   const report = JSON.parse(generateReport(data));
   let text = '\n======================================================\n';
   text += `   PERFORMANCE TEST REPORT: ${report["Module Name"].toUpperCase()} (${report["Test Type"].toUpperCase()})\n`;

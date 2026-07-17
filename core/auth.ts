@@ -1,4 +1,4 @@
-import { ENV } from '../config/env.js';
+import { ENV } from '../config/env.ts';
 import encoding from 'k6/encoding';
 
 /**
@@ -7,7 +7,7 @@ import encoding from 'k6/encoding';
  * For cookies, it can return a string to be set in the headers or handled via k6 jar.
  */
 export function getAuthHeaders() {
-  const headers = {};
+  const headers: Record<string, string> = {};
 
   switch (ENV.AUTH_TYPE) {
     case 'token':

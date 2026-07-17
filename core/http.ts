@@ -1,8 +1,8 @@
 import http from 'k6/http';
 import { check } from 'k6';
-import { ENV } from '../config/env.js';
-import { getAuthHeaders } from './auth.js';
-import { trackMetrics } from './metrics.js';
+import { ENV } from '../config/env.ts';
+import { getAuthHeaders } from './auth.ts';
+import { trackMetrics } from './metrics.ts';
 
 /**
  * Builds the complete headers for a request, combining default headers,
@@ -22,7 +22,7 @@ function buildHeaders(customHeaders = {}) {
 /**
  * Wrapper for k6 http.get
  */
-export function get(endpoint, customHeaders = {}, expectedStatus = 200) {
+export function get(endpoint: string, customHeaders: Record<string, string> = {}, expectedStatus: number = 200) {
   const url = `${ENV.BASE_URL}${endpoint}`;
   const params = {
     headers: buildHeaders(customHeaders),
@@ -41,7 +41,7 @@ export function get(endpoint, customHeaders = {}, expectedStatus = 200) {
 /**
  * Wrapper for k6 http.post
  */
-export function post(endpoint, payload, customHeaders = {}, expectedStatus = 200) {
+export function post(endpoint: string, payload: any, customHeaders: Record<string, string> = {}, expectedStatus: number = 200) {
   const url = `${ENV.BASE_URL}${endpoint}`;
   const body = typeof payload === 'string' ? payload : JSON.stringify(payload);
   const params = {
@@ -61,7 +61,7 @@ export function post(endpoint, payload, customHeaders = {}, expectedStatus = 200
 /**
  * Wrapper for k6 http.put
  */
-export function put(endpoint, payload, customHeaders = {}, expectedStatus = 200) {
+export function put(endpoint: string, payload: any, customHeaders: Record<string, string> = {}, expectedStatus: number = 200) {
   const url = `${ENV.BASE_URL}${endpoint}`;
   const body = typeof payload === 'string' ? payload : JSON.stringify(payload);
   const params = {
@@ -81,7 +81,7 @@ export function put(endpoint, payload, customHeaders = {}, expectedStatus = 200)
 /**
  * Wrapper for k6 http.del
  */
-export function del(endpoint, customHeaders = {}, expectedStatus = 200) {
+export function del(endpoint: string, customHeaders: Record<string, string> = {}, expectedStatus: number = 200) {
   const url = `${ENV.BASE_URL}${endpoint}`;
   const params = {
     headers: buildHeaders(customHeaders),

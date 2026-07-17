@@ -10,4 +10,4 @@ echo "Running Scenario: $SCENARIO"
 echo "Test Type: $TEST_TYPE"
 echo "Base URL: $BASE_URL"
 
-k6 run -e SCENARIO=$SCENARIO -e TEST_TYPE=$TEST_TYPE -e BASE_URL=$BASE_URL runner.js
+k6 run -e SCENARIO=$SCENARIO -e TEST_TYPE=$TEST_TYPE -e BASE_URL=$BASE_URL runner.ts

@@ -1,10 +1,10 @@
-import { ENV } from './config/env.js';
-import { getThresholds } from './config/thresholds.config.js';
-import { loadProfile } from './profiles/load.js';
-import { stressProfile } from './profiles/stress.js';
-import { spikeProfile } from './profiles/spike.js';
-import { volumeProfile } from './profiles/volume.js';
-import { generateReport, generateTextSummary } from './core/reporter.js';
+import { ENV } from './config/env.ts';
+import { getThresholds } from './config/thresholds.config.ts';
+import { loadProfile } from './profiles/load.ts';
+import { stressProfile } from './profiles/stress.ts';
+import { spikeProfile } from './profiles/spike.ts';
+import { volumeProfile } from './profiles/volume.ts';
+import { generateReport, generateTextSummary } from './core/reporter.ts';
 
 // 1. Dynamic Options Configuration
 let profileOptions = {};
@@ -44,10 +44,10 @@ export function setup() {
 // Therefore, we must import all available scenarios and route them here, or use a build step.
 // For a fully dynamic approach without a build step, we map scenarios explicitly.
 
-import { scenario as exampleApi } from './scenarios/example_api.js';
-import { scenario as exampleDashboard } from './scenarios/example_dashboard.js';
+import { scenario as exampleApi } from './scenarios/example_api.ts';
+import { scenario as exampleDashboard } from './scenarios/example_dashboard.ts';
 
-const scenarios = {
+const scenarios: Record<string, () => void> = {
   'example_api': exampleApi,
   'example_dashboard': exampleDashboard,
   // Add new scenarios here
@@ -63,7 +63,7 @@ export default function () {
 }
 
 // 4. Teardown & Reporting
-export function handleSummary(data) {
+export function handleSummary(data: any) {
   const jsonReport = generateReport(data);
   const textSummary = generateTextSummary(data);
 
